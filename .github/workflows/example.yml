@@ -1,0 +1,19 @@
+name: Generate cert
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  generate-cert:
+    name: Generate cert
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Generate cert
+        id: generate-cert
+        uses: ./
+
+      - name: Echo outputs
+        run: echo "${{ toJSON(steps.generate-cert.outputs) }}"

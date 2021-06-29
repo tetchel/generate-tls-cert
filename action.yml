@@ -1,0 +1,17 @@
+name: 'Generate TLS cert'
+description: 'Use openssl to generate a TLS cert for localhost'
+inputs:
+  output_directory:
+    description: Output cert and key to this directory.
+    required: false
+  filename:
+    description: Basename to give .crt and .key file.
+    required: false
+outputs:
+  certfile:
+    description: Certificate file
+  keyfile:
+    description: Private key
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
